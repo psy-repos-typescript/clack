@@ -1,4 +1,5 @@
 import { styleText } from 'node:util';
+import type { Validate } from '@clack/core';
 import { AutocompletePrompt, settings } from '@clack/core';
 import {
 	type CommonOptions,
@@ -70,10 +71,11 @@ interface AutocompleteSharedOptions<Value> extends CommonOptions {
 	placeholder?: string;
 
 	/**
-	 * A function that validates user input. Return a `string` or `Error` to show as a
-	 * validation error, or `undefined` to accept the result.
+	 * A function or a [Standard Schema](https://github.com/standard-schema/standard-schema)
+	 * that validates user input. If a custom function is given, you should return a `string` or `Error`
+	 * to show as a validation error, or `undefined` to accept the result.
 	 */
-	validate?: (value: Value | Value[] | undefined) => string | Error | undefined;
+	validate?: Validate<Value | Value[]>;
 
 	/**
 	 * Custom filter function to match options against the search input.
