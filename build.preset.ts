@@ -11,7 +11,7 @@ export default definePreset({
 		esbuild: {
 			minifySyntax: true,
 			minifyIdentifiers: true,
-			minifyWhitespace: false
+			minifyWhitespace: false,
 		},
 	},
 });
